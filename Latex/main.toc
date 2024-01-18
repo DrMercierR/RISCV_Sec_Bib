@@ -1,0 +1,13 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}RISC-V Overview}{5}{}%
+\contentsline {chapter}{\numberline {2}RISC-V Fault Injections}{7}{}%
+\contentsline {chapter}{\numberline {3}RISC-V Countermeasures}{9}{}%
+\contentsline {section}{\numberline {3.1}Note about pointer attack from paper "A Survey on Thwarting Memory Corruption in RISC-V"}{9}{}%
+\contentsline {subsection}{\numberline {3.1.1}Access Validation}{9}{}%
+\contentsline {subsection}{\numberline {3.1.2}Information Obfuscation}{10}{}%
+\contentsline {chapter}{\numberline {4}RISC-V Architecture Examples}{11}{}%
+\contentsline {section}{\numberline {4.1}CVA6 (CV32E)}{11}{}%
+\contentsline {section}{\numberline {4.2}CV32E40S}{11}{}%
+\contentsline {chapter}{\numberline {5}Memory Corruption}{13}{}%
+\contentsline {section}{\numberline {5.1}Attack Taxonomy}{13}{}%
+\contentsline {section}{\numberline {5.2}Test Metrics}{14}{}%

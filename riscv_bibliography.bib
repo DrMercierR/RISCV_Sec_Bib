@@ -1,0 +1,111 @@
+% Encoding: UTF-8
+
+@InProceedings{Anders2023,
+  author    = {Anders, Jens and Andreu, Pablo and Becker, Bernd and Becker, Steffen and Cantoro, Riccardo and Deligiannis, Nikolaos I. and Elhamawy, Nourhan and Faller, Tobias and Hernandez, Carles and Mentens, Nele and Rizi, Mahnaz Namazi and Polian, Ilia and Sajadi, Abolfazl and Sauer, Mathias and Schwachhofer, Denis and Reorda, Matteo Sonza and Stefanov, Todor and Tuzov, Ilya and Wagner, Stefan and Zidarič, Nuša},
+  title     = {A Survey of Recent Developments in Testability, Safety and Security of RISC-V Processors},
+  booktitle = {2023 IEEE European Test Symposium (ETS)},
+  year      = {2023},
+  pages     = {1-10},
+  month     = {May},
+  abstract  = {With the continued success of the open RISC-V architecture, practical deployment of RISC-V processors necessitates an in-depth consideration of their testability, safety and security aspects. This survey provides an overview of recent developments in this quickly-evolving field. We start with discussing the application of state-of-the-art functional and system-level test solutions to RISC-V processors. Then, we discuss the use of RISC-V processors for safety-related applications; to this end, we outline the essential techniques necessary to obtain safety both in the functional and in the timing domain and review recent processor designs with safety features. Finally, we survey the different aspects of security with respect to RISC-V implementations and discuss the relationship between cryptographic protocols and primitives on the one hand and the RISC-V processor architecture and hardware implementation on the other. We also comment on the role of a RISC-V processor for system security and its resilience against side-channel attacks.},
+  doi       = {10.1109/ETS56758.2023.10174099},
+  groups    = {Survey},
+  issn      = {1558-1780},
+  review    = {This paper presents a survey of the safety and security in RISC-V architectures. The safety part presents some methods to managed aging and radation-faults during the systems life such like ECC, replication etc...
+
+The security part present the basic methods to secure an architecture in terms of confidentiality, integrité, authentificaiton and non-repugnation using ryptographic primitive. A section speal about the root of trust bu tthis sectio is not really detailed.
+
+The advanages if this paper is a table that detailed the state-of-the art secure RISC-V architectures that can be foud in the literature. The archiecture of ROCKET is mentioned many times. The security applications is mainly covered and some interesting points are detailed in the paper.},
+}
+
+@InProceedings{Gerlach2023,
+  author    = {Lukas Gerlach and Daniel Weber and Ruiyi Zhang and Michael Schwarz},
+  title     = {A Security RISC: Microarchitectural Attacks on Hardware RISC-V CPUs},
+  booktitle = {44th IEEE Symposium on Security and Privacy},
+  year      = {2023},
+  month     = {May},
+  abstract  = {Microarchitectural attacks threaten the security of computer systems even in the absence of software vulnerabilities.  Such attacks are well explored on x86 and ARM CPUs, with a wide range of proposed but not-yet deployed hardware countermeasures.  With the standardization of the RISC-V instruction set architecture and the announcement of support for the architecture by major processor vendors, RISC-V CPUs are on the verge of becoming ubiquitous.  However, the microarchitectural attack surface of the first commercially available RISC-V hardware CPUs is not yet explored. This paper analyzes the two commercially-available off-the-shelf 64-bit RISC-V (hardware) CPUs used in most RISC-V systems running a full-fledged commodity Linux system.  We evaluate the microarchitectural attack surface, which leads to the introduction of 3 new microarchitectural attack techniques:  Cache+Time, a novel cache-line-granular cache attack without shared memory, Flush+Fault exploiting the Harvard cache architecture for Flush+Reload, and CycleDrift exploiting unprivileged access to instruction-retirement information. Additionally, we show that many known attacks are applicable to these RISC-V CPUs, mainly due to non-existing hardware countermeasures and instruction-set subtleties that do not consider the microarchitectural attack surface.  We demonstrate our attacks in 6 case studies, including the first RISC-V-specific microarchitectural KASLR break and a CycleDrift-based method for detecting kernel activity.  Based on our analysis, we stress the need to consider the microarchitectural attack surface during every step of a CPU design, including custom instruction-set extensions.},
+  groups    = {Cache},
+  journal   = {44th IEEE Symposium on Security and Privacy},
+  review    = {In this paper, the authors present three novel attacks on cache memory:
+
+- Cache+Time: This attack exploits the branch prediction with the possibility to flush the Icache. This attack consists to flush the entire cache and to cache one instruction in the cache. Then, the attacker can determine if the cached instruction is used by th programm according to the access time. Contrary to the Evit+Time of the literature, all the cache is evicted against one cache line.
+- Flush+Fault:  This attack is a variant of the flush+Reload attack that can be used without unified caches. This attack is split into two categories, that are the fault-based and the return-based Flush+Fault. The idea is to execute a faulting jump into the shared victim code or an immediate return from the victime code.
+- CycleDrift: This attack exploits the unpriviledge access to the number of retired instructions and determine how many instructions have been retired. This attack cna be used to spy kernels.
+
+
+
+Several known attacks of the literature are also studied in this article:
+
+- Flush+Reload that allows an attacker to monitor accesses to a Dcache or Icache line residing in shared meory.
+- Flush+Flush: Where we can see the timing difference between flushing a modified and non-modified cache line.
+- Evict+Reload: ?
+- Prime+Probe: that use eviction for both prme and probe step.
+- Prime+Count: that count the number of victim accesses.
+- TLB eviction: That allows to flush the TLM and spy the virtual address translation.
+- Simple Branch Prediction analysis: ?
+- Branch Shadowing:?
+
+Some experience are led to test these attacks and the the key of AES and RSA algorithms can be found using them on Three different RISC-V Architectures.},
+  url       = {https://publications.cispa.saarland/3924/},
+}
+
+@InProceedings{Haj-Yahya2019,
+  author    = {Haj-Yahya, Jawad and Wong, Ming Ming and Pudi, Vikramkumar and Bhasin, Shivam and Chattopadhyay, Anupam},
+  title     = {Lightweight Secure-Boot Architecture for RISC-V System-on-Chip},
+  booktitle = {20th International Symposium on Quality Electronic Design (ISQED)},
+  year      = {2019},
+  pages     = {216-223},
+  month     = {March},
+  abstract  = {Securing thousands of connected, resource-constrained computing devices is a major challenge nowadays. Adding to the challenge, third party service providers need regular access to the system. To ensure the integrity of the system and authenticity of the software vendor, secure boot is supported by several commercial processors. However, the existing solutions are either complex, or have been compromised by determined attackers. In this scenario, open-source secure computing architectures are poised to play an important role for designers and white hat attackers. In this manuscript, we propose a lightweight hardware-based secure boot architecture. The architecture uses efficient implementation of Elliptic Curve Digital Signature Algorithm (ECDSA), Secure Hash Algorithm 3 (SHA3) hashing algorithm and Direct Memory Access (DMA). In addition, the architecture includes Key Management Unit, which incorporates an optimized Physical Unclonable Function (PUF) for providing keys to the security blocks of the System on Chip (SoC), among which, secure boot and remote attestation. We demonstrated the framework on RISC-V based SoC. Detailed analysis of performance and security for the platform is presented.},
+  doi       = {10.1109/ISQED.2019.8697657},
+  groups    = {Secure Boot},
+  issn      = {1948-3287},
+  review    = {This article presents a secure boot freamework for RISC-V that includes ESCDA algorithm and SHA3 for secure boot. The asymetric keys are generated using a PUF. The framework is detailed in the article and the work will be extended soon.},
+}
+
+@Misc{Annink2022,
+  author   = {E.B. {Annink}},
+  title    = {Preventing soft-errors and hardware trojans in embedded RISC-V cores},
+  month    = {May},
+  year     = {2022},
+  abstract = {Single-event upsets and multiple-bit upsets that are part of single-event effects, cause bit-flips and hence lead to data corruption. Therefore, devices that are deployed in harsh environments such as in space use fault-tolerant processors or redundancy methods to ensure hardware reliability. Another serious vulnerability is the introduction of hardware trojans. Besides environmental side-effects, an adversary that has injected a malicious mechanism e.g., in the processor or memory can trigger unwanted behavior or leak sensitive information. Techniques to prevent or mitigate hardware trojans are important to ensure hardware security. Proprietary solutions exist in the market that introduces fault-tolerance or security extensions to establish this. Openness is important to prevent monopolistic proprietary solutions and create alternative solutions, such as an analogy of what happened in the world of Operating Systems; Windows NT (proprietary OS and kernel) versus Linux (open-source kernel). This is where the open RISC-V instruction set architecture becomes relevant. A novel solution to improve the security and reliability of RISC-V soft-cores with a low area and latency overhead was introduced in this thesis. The instruction validator which is the first part of this solution can effectively detect hardware trojans and multiple-bit upsets in the instruction memory by checking instruction/address pairs using a Bloom filter probabilistic data structure. The second part of the solution is the proposal of an error correction code instruction memory using Hamming single-error correction to detect and correct single-event upsets. It has also been proven that the Hamming decoder improves the detection performance of the instruction validator. An automation framework was introduced to generate, simulate and synthesize the instruction validator for different configurations which presents the designer with different options based on the application requirements. Besides this automation framework, two BF optimizations were proposed that decrease the BF area overhead. The instruction validator and error correction code instruction memory were successfully tested and integrated with the FreNox RISC-V core on an FPGA fabric. This resulted in a low area and latency overhead which makes it suitable to use with embedded RISC-V soft-cores that have strict security and reliability requirements.},
+  groups   = {Memory},
+  review   = {This paper present a solution to manage induced fault (radiation based) and hardware trojan in instruction (maybe in data also) memory. For that, the instruction and address are hash using CRC-32C hash or multiplyShift. Then, the hash is tested using a data struture of type Bloom filter to detect fault injection of hardware trojan in the instructions. Is error are detected, an hamming code is useg to correct one error. The extended is not necessary as the Bloom filter already detect the errors in the instruction stream.},
+  url      = {http://essay.utwente.nl/90556/},
+}
+
+@InProceedings{9088035,
+  author    = {Kumar, Vinay B. Y. and Chattopadhyay, Anupam and Haj-Yahya, Jawad and Mendelson, Avi},
+  title     = {ITUS: A Secure RISC-V System-on-Chip},
+  booktitle = {2019 32nd IEEE International System-on-Chip Conference (SOCC)},
+  year      = {2019},
+  pages     = {418-423},
+  month     = {Sep.},
+  abstract  = {The rising tide of attacks, in the recent years, against microprocessors and the system-on-chip (SoC) space as a whole, has led to a growing number of studies into security of SoCs. Security fortification is often incorporated as a follow-up feature to existing systems and many vulnerabilities cannot be patched without significantly degrading performance. A holistic approach to address the security challenge needs to include security-first design principles, security-aware test and verification methodologies, and well-quantified performance trade-off analysis. In this paper, we report the design principles of ITUS 1, a secure SoC based on RISC-V architecture. In parallel, a systematic overview of various design and automation efforts towards achieving SoC security is presented.1after Itus, a relevant name from Greek mythology.},
+  doi       = {10.1109/SOCC46988.2019.1570564307},
+  groups    = {Secure Boot, Memory},
+  issn      = {2164-1706},
+  review    = {This paper presents ITUS, a secure RISC-V microarchitecture that adopt various securerity measure for secure boot, memory protection and key generation.
+
+Secure boot is manage by a dedicated hardware unit allowing to increase performances and limit side channel attack than using the risc core for the boot sequence.
+
+Memory offers confidentiality and integrety using AES GCM.
+
+Key generation is made using silicon PUF.},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: groupstree:
+0 AllEntriesGroup:;
+1 ExplicitGroup:RISC-V\;0\;;
+2 ExplicitGroup:Architecture\;0\;;
+1 ExplicitGroup:Security\;0\;;
+2 ExplicitGroup:Survey\;0\;;
+2 ExplicitGroup:Attacks\;0\;;
+3 ExplicitGroup:Cache\;0\;;
+2 ExplicitGroup:Countermeasures\;0\;;
+3 ExplicitGroup:Secure Boot\;0\;;
+3 ExplicitGroup:Memory\;0\;;
+}
